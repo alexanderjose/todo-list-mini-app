@@ -3,12 +3,10 @@
 >Una mini-guía, para describir un poco los pasos para la creación de una mini-aplicación en python-django.
 
 1. Creamos y accedemos a la carpeta que contendrá nuestro proyecto:<br>
-    ```
-    $ mkdir test-optic_todo-list/
-    ```
+    code $ mkdir todo-list-mini-app/
 
     ```
-    $ cd test-optic_todo-list/
+    $ cd todo-list-mini-app/
     ```
 2. Instalamos e inicializamos el entorno virtual (virtualenv previamente instalado):<br>
     ```
