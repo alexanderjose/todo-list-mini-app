@@ -3,7 +3,9 @@
 >Una mini-guía, para describir un poco los pasos para la creación de una mini-aplicación en python-django.
 
 1. Creamos y accedemos a la carpeta que contendrá nuestro proyecto:<br>
-    code $ mkdir todo-list-mini-app/
+    ```
+    $ mkdir todo-list-mini-app/
+    ```
 
     ```
     $ cd todo-list-mini-app/
