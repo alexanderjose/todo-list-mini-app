@@ -1,0 +1,63 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+{% load compress %}
+{% load staticfiles %}
+{% load widget_tweaks %}
+
+{% block head_title %}
+  {% trans "Signup" %}
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <div class="demo-card login-box">
+          <h4>{% trans "Registro de usuario" %}</h4>
+          <p>
+            {% blocktrans %}
+              Ya posees una cuenta, Por favor <a href="{{ login_url }}">ingresa</a>.
+            {% endblocktrans %}
+            <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+              {% csrf_token %}
+              <div class="col-md-6 first_name_col">
+                <div class="form-group {% if form.first_name.errors %}has-error{% endif %}">
+                  {{ form.first_name | add_class:"form-control" | attr:"autocomplete:off" | attr:"placeholder:Nombre" }}
+                  {{ form.first_name.errors }}
+                </div>
+              </div>
+              <div class="col-md-6 last_name_col">
+                <div class="form-group {% if form.last_name.errors %}has-error{% endif %}">
+                  {{ form.last_name | add_class:"form-control" | attr:"autocomplete:off" | attr:"placeholder:Apellido" }}
+                  {{ form.last_name.errors }}
+                </div>
+              </div>
+
+              <div class="form-group {% if form.username.errors %}has-error{% endif %}">
+                  {{ form.username | add_class:"form-control" | attr:"autocomplete:off" }}
+                  {{ form.username.errors }}
+              </div>
+              <div class="form-group {% if form.email.errors %}has-error{% endif %}">
+                  {{ form.email | add_class:"form-control" | attr:"autocomplete:off" }}
+                  {{ form.email.errors }}
+              </div>
+              <div class="form-group {% if form.password1.errors %}has-error{% endif %}">
+                  {{ form.password1 | add_class:"form-control" | attr:"autocomplete:off" }}
+                  {{ form.password1.errors }}
+              </div>
+              <div class="form-group {% if form.password2.errors %}has-error{% endif %}">
+                  {{ form.password2 | add_class:"form-control" | attr:"autocomplete:off" }}
+                  {{ form.password2.errors }}
+              </div>
+              {% if redirect_field_value %}
+              <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+              {% endif %}
+              <button type="submit">{% trans "Sign Up" %} &raquo;</button>
+            </form>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

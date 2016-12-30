@@ -1,0 +1,88 @@
+{% extends "task/todolist_base.html" %}
+
+{% load i18n %}
+{% load compress %}
+{% load staticfiles %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+<div class="row">
+  <div class="panel panel-warning">
+    <div class="panel-heading">
+      <h4 class="text-left">Listado de tareas por hacer (TODO-List)</h4>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-12">
+          {% if tareas %}
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <th>{% trans "Descripción" %}</th>
+                  <th>{% trans "Estatus" %}</th>
+                  <th>{% trans "Usuario" %}</th>
+                </thead>
+                <tbody>
+                  {% for tarea in tareas %}
+                    <tr class="text-justify">
+                      <td>
+                        {{ tarea.descripcion }}
+                      </td>
+                      <td>
+                        {{ tarea.user }}
+                      </td>
+                      <td>
+                        <a href="{% url 'update_task_view' tarea.id %}">
+                          {% if tarea.status == 1 %}<span class="label label-warning">{{ tarea.get_status_display }}</span>{% endif %}
+                          {% if tarea.status == 2 %}<span class="label label-primary">{{ tarea.get_status_display }}</span>{% endif %}
+                          {% if tarea.status == 3 %}<span class="label label-info">{{ tarea.get_status_display }}</span>{% endif %}
+                          {% if tarea.status == 4 %}<span class="label label-danger">{{ tarea.get_status_display }}</span>{% endif %}
+                          {% if tarea.status == 5 %}<span class="label label-success">{{ tarea.get_status_display }}</span>{% endif %}
+                        </a>
+                      </td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            {% if is_paginated %}
+              <div class="text-center">
+                <ul class="pagination">
+                  {% if tareas.has_previous %}
+                  <li>
+                    <a href="?page={{ tareas.previous_page_number }}" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  {% endif %}
+                  {% if tareas.paginator.count >= tareas.paginator.per_page %}
+                  <li class="">
+                    <span>
+                      {{ tareas.number }} / {{ tareas.paginator.num_pages }}.
+                    </span>
+                  </li>
+                  {% endif %}
+                  {% if tareas.has_next %}
+                  <li>
+                    <a href="?page={{ tareas.next_page_number }}" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                  {% endif %}
+                </ul>
+              </div>
+            {% endif %}
+          {% else %}
+            <div class="alert alert-warning" role="alert">
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              {% trans "Aún no se han creado tareas" %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

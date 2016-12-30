@@ -1,0 +1,68 @@
+{% extends "task/todolist_base.html" %}
+
+{% load i18n %}
+{% load compress %}
+{% load staticfiles %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+  <form id="id_crear_tarea" action="{% url 'new_task_view' %}" method="post">
+  {% csrf_token %}
+    <!-- <table>
+      {{ form.as_table }}
+    </table>
+    <input type="submit" value="Submit"> -->
+
+    <div class="row">
+      <div class="panel panel-warning">
+        <div class="panel-heading">
+          <h4 class="text-left">Mini sistema para la creación y modificación de tareas (TODO)</h4>
+        </div>
+        <div class="panel-body">
+          <div class="col-md-12">
+            <div class="division">
+                <div class="line l"></div>
+                <h4 class="text-center">{% trans "Creacion de tareas" %}</h4>
+                <div class="line r"></div>
+            </div>
+            <div class="form-group {% if form.fecha_culminacion.errors %}has-error{% endif %}">
+                <h6>
+                  {% trans "Indique la fecha de culminación" %}:
+                </h6>
+                {{ form.fecha_culminacion | add_class:"form-control" | attr:"rows:3" }}
+                {{ form.fecha_culminacion.errors }}
+            </div>
+            <div class="form-group {% if form.descripcion.errors %}has-error{% endif %}">
+                <h6>
+                  {% trans "Describa la tarea a crear" %}:
+                </h6>
+                {{ form.descripcion | add_class:"form-control" | attr:"rows:3" }}
+                {{ form.descripcion.errors }}
+            </div>
+            <div class="row btn-container text-center">
+              <div class="col-md-6 col-sm-12 col-xs-12">
+                  <a
+                    href="{% url 'todo_index_view' %}"
+                    class="btn btn-md btn-fill btn-info">
+                    {% trans "Cancelar" %}
+                  </a>
+              </div>
+              <div class="col-md-6 col-sm-12 col-xs-12">
+                  <button
+                      type="submit"
+                      name="submit_button"
+                      class="btn btn-fill btn-md btn-success btn-move-right">
+                      {% trans "Guardar" %}
+                  </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </form>
+
+{% endblock %}
