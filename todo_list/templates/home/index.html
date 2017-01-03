@@ -58,7 +58,7 @@
           								<li><a class="page-scroll" href="single.html">Single Blog Page</a></li>
           							</ul>
           							</li>
-                        <li><a class="page-scroll" href="#abt_sec">About</a></li>
+                        <li><a class="page-scroll" href="#about_section">About</a></li>
         								<li><a class="page-scroll" href="#skill_sec">Our Skill</a></li>
         								<li><a class="page-scroll" href="#pr_sec">Our Service</a></li>
         								<li><a class="page-scroll" href="#protfolio_sec">Our Portfolio</a></li>
@@ -75,7 +75,7 @@
     </header> -->
     <!-- End Header Section -->
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -90,27 +90,217 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
+          <!-- <ul class="nav navbar-nav">
             <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
             <li><a href="#">Link</a></li>
-          </ul>
+          </ul> -->
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Link</a></li>
-            <li class="dropdown">
+            <li><a href="{% url 'account_login' %}">{% trans "Sign In" %}</a></li>
+            <li><a href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a></li>
+            <!-- <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menú<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="{% url 'account_login' %}">{% trans "Login" %}</a></li>
                 <li><a href="{% url 'account_signup' %}">{% trans "Regístrate" %}</a></li>
-                <!-- <li><a href="#">Another action</a></li>
+                <li><a href="#">Another action</a></li>
                 <li><a href="#">Something else here</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li> -->
+                <li><a href="#">Separated link</a></li>
               </ul>
-            </li>
+            </li> -->
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
+
+    <!-- Start slider Section -->
+    <section id="slider_section">
+      <div class="container">
+        <div class="row">
+          <div class="slider">
+
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End slider Section -->
+
+    <!-- start about Section -->
+    <section id="about_section">
+    	<div class="container">
+    		<div class="row">
+    			<div class="col-lg-12 col-md-12 col-sm-12 col-xs12 ">
+    				<div class="title">
+    					<h1>ABOUT</h1>
+    					<h2>Neque porro quisquam est qui dolorem ipsum quia</h2>
+    				</div>
+    			</div>
+    			<div class="col-lg-12 col-md-12 col-sm-12 col-xs12 ">
+    				<div class="content">
+    					<p>Mauris luctus aliquet nunc quis consectetur. Curabitur elit massa, consequat vel velit sit amet, scelerisque hendrerit mi. Cras pellentesque sem turpis, quis interdum mi sagittis a. Donec mattis porttitor eleifend</p>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </section>
+    <!-- End About Section -->
+
+    <!-- start boxes Section -->
+    <section id="three_section">
+      <!-- <div class="container"> -->
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs12 ">
+            <div class="col-md-4">
+              <article class="">
+                <div class="wrap">
+                  <h4>Title</h4>
+                  <p>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus accumsan sem non mauris pellentesque, vel suscipit magna consectetur. Pellentesque vitae sapien a erat efficitur auctor vitae tempus velit. Praesent lectus lorem, ornare sed sodales quis, bibendum non nibh. Morbi a libero sit amet felis euismod viverra.
+                  </p>
+                </div>
+              </article>
+            </div>
+            <div class="col-md-4">
+              <article class="">
+                <div class="wrap">
+                  <h4>Title</h4>
+                  <p>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus accumsan sem non mauris pellentesque, vel suscipit magna consectetur. Pellentesque vitae sapien a erat efficitur auctor vitae tempus velit. Praesent lectus lorem, ornare sed sodales quis, bibendum non nibh. Morbi a libero sit amet felis euismod viverra.
+                  </p>
+                </div>
+              </article>
+            </div>
+            <div class="col-md-4">
+              <article class="">
+                <div class="wrap">
+                  <h4>Title</h4>
+                  <p>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus accumsan sem non mauris pellentesque, vel suscipit magna consectetur. Pellentesque vitae sapien a erat efficitur auctor vitae tempus velit. Praesent lectus lorem, ornare sed sodales quis, bibendum non nibh. Morbi a libero sit amet felis euismod viverra.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      <!-- </div> -->
+    </section>
+    <!-- end boxes Section -->
+
+    <!-- start posts Section -->
+    <section id="posts_section">
+      <div class="container">
+        <div class="row">
+          <h4>{% trans "Latest Posts" %}</h4>
+          <h5>{% trans "A best place for read the most interesting posts" %}</h5>
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs12 ">
+            <div class="col-md-4">
+              <article class="post">
+                <div class="wrap-post">
+                  <img class="img-responsive" src="{% static 'img/posts/2017/january/nature26.jpg' %}" alt="" />
+                  <h4 class="title">Snow Mountain</h4>
+                  <p>
+                    Donec libero diam, egestas sed enim ac, cursus sodales est. Aenean est dolor, dignissim a lorem sed, pellentesque convallis nibh. Vestibulum id condimentum nibh. Nunc vitae erat ipsum. Curabitur massa eros, mattis ut tincidunt sodales, imperdiet at est. Donec id augue mauris. Suspendisse potenti. Curabitur faucibus semper mi, at consectetur massa consectetur a.
+                  </p>
+                  <span><a href="#">{% trans "Read more..." %}</a></span>
+                </div>
+              </article>
+            </div>
+            <div class="col-md-4">
+              <article class="post">
+                <div class="wrap-post">
+                  <img class="img-responsive" src="{% static 'img/posts/2017/january/nature16.jpg' %}" alt="" />
+                  <h4 class="title">Beautiful Beach</h4>
+                  <p>
+                    Donec libero diam, egestas sed enim ac, cursus sodales est. Aenean est dolor, dignissim a lorem sed, pellentesque convallis nibh. Vestibulum id condimentum nibh. Nunc vitae erat ipsum. Curabitur massa eros, mattis ut tincidunt sodales, imperdiet at est. Donec id augue mauris. Suspendisse potenti. Curabitur faucibus semper mi, at consectetur massa consectetur a.
+                  </p>
+                  <span><a href="#">{% trans "Read more..." %}</a></span>
+                </div>
+              </article>
+            </div>
+            <div class="col-md-4">
+              <article class="post">
+                <div class="wrap-post">
+                  <img class="img-responsive" src="{% static 'img/posts/2017/january/nature17.jpg' %}" alt="" />
+                  <h4 class="title">Magic Cascades</h4>
+                  <p>
+                    Donec libero diam, egestas sed enim ac, cursus sodales est. Aenean est dolor, dignissim a lorem sed, pellentesque convallis nibh. Vestibulum id condimentum nibh. Nunc vitae erat ipsum. Curabitur massa eros, mattis ut tincidunt sodales, imperdiet at est. Donec id augue mauris. Suspendisse potenti. Curabitur faucibus semper mi, at consectetur massa consectetur a.
+                  </p>
+                  <span><a href="#">{% trans "Read more..." %}</a></span>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end posts Section -->
+
+    <!-- start Footer Section -->
+    <footer>
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs12 ">
+          <div class="col-md-3">
+            <p>
+              <h3>1290 San Pablo Aveneu</h3>
+              <h4>Santiago, Chile</h4>
+            </p>
+            <p>
+              +9 1234 5678
+            </p>
+            <p>
+              support@company.com
+            </p>
+          </div>
+          <div class="col-md-3">
+            <h4>Related Links</h4>
+            <ul>
+              <li>Career</li>
+              <li>Privacy Policy</li>
+              <li>Terms & Conditions</li>
+              <li>Ranking</li>
+              <li>Gongo</li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h4>Categories</h4>
+            <ul>
+              <li>Sports</li>
+              <li>Business</li>
+              <li>Politics</li>
+              <li>Culture</li>
+              <li>Development</li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <div class="about">
+              <h3>About the company</h3>
+              <p>
+                Maecenas risus dui, ultrices quis iaculis et, rhoncus in lorem. Duis cursus molestie enim ac bibendum. Phasellus ac sollicitudin mauris.
+              </p>
+            </div>
+            <div class="social-links">
+              <h4>F G T L</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row line">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs12 ">
+          <div class="col-md-6">
+            <p class="text-left">
+              @2017 - Copyleft
+            </p>
+          </div>
+          <div class="col-md-6">
+            <div class="text-right">
+              todolistdemo / Contact Us / Blog / Faqs
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- end Footer Section -->
+
   </body>
 
   <!-- Load the scripts javascript -->
