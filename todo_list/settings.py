@@ -58,6 +58,7 @@ THIRD_PARTY_APPS = (
 LOCAL_APPS = (
     'todo_list.home',
     'todo_list.task',
+    'todo_list.blog',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -226,3 +227,6 @@ LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/todo/tarea/lista'
 ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'
 ACCOUNT_LOGOUT_ON_GET = True
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

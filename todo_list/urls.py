@@ -17,6 +17,8 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from todo_list.home import views as home_views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
 
@@ -57,4 +59,5 @@ urlpatterns = [
     # Django Todo App
     # --------------------------------------------------------------------------
     url(r'^todo/', include('todo_list.task.urls')),
-]
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
